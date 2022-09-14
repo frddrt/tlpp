@@ -1,0 +1,29 @@
+#include "ferracini.ch"
+
+class StringBuilder
+	data string as Character
+
+	public method new() constructor
+	public method append(value)
+	public method toString()
+endclass
+
+method new() class StringBuilder
+	::string := ""
+Return self
+
+method append(value) class StringBuilder
+	local newValue as Character
+
+	DO CASE
+		CASE valType(value) == "N"; newValue := allTrim(str(value))
+		CASE valType(value) == "D"; newValue := dToC(value)
+		CASE valType(value) == "U"; newValue := ""
+		OTHERWISE                 ; newValue := value
+	ENDCASE
+
+	::string += newValue
+Return
+
+method toString() class StringBuilder
+Return( ::string )
