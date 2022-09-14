@@ -4,7 +4,7 @@ Ferramentas em TL++ e ADVPL
 ## Ferramentas:
 
 ### StringBuilder
-Monta uma string e retorna uma string, semelhante ao StringBuilder do Java.
+Monta e retorna uma string, semelhante ao StringBuilder do Java.
 
 ```clipper
 stringBuilder := StringBuilder():new()
