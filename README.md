@@ -17,3 +17,7 @@ stringBuilder:append(" graus na sombra")
 
 alert(stringBuilder:toString())
 ```
+
+### WebDialog
+Cria uma janela exibindo um HTML e propiciando uma integração ADVPL/TLPP com o Javascript.
+[Veja mais](WebDialog/README.md)
