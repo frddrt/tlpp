@@ -16,6 +16,11 @@ stringBuilder:append(30)
 stringBuilder:append(" graus na sombra")
 
 alert(stringBuilder:toString())
+
+stringBuilder:clear()
+stringBuilder:addMany("Hoje é ", dDatabase, " e está fazendo ", 30, " graus na sombra")
+
+alert(stringBuilder:toString())
 ```
 
 ### WebDialog
