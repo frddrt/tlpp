@@ -5,6 +5,8 @@ class StringBuilder
 
 	public method new() constructor
 	public method append(value)
+	public method addMany(value as Variadic)
+	public method clear()
 	public method toString()
 endclass
 
@@ -23,6 +25,20 @@ method append(value) class StringBuilder
 	ENDCASE
 
 	::string += newValue
+Return
+
+method addMany(value as Variadic) class StringBuilder
+	Local i as Numeric
+
+	IF (valType(value) != "U")
+		FOR i := 1 TO value:vCount
+			::append(value:vArgs[i])
+		NEXT
+	ENDIF
+Return
+
+method clear() class StringBuilder
+	::string := ""
 Return
 
 method toString() class StringBuilder
