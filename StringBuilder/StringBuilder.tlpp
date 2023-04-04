@@ -1,7 +1,12 @@
+/**
+ * @author Frederico Ferracini Duarte
+ * @since 2022-09-14 10:43:23
+ */
+
 #include "ferracini.ch"
 
 class StringBuilder
-	data string as Character
+	data string as Array
 
 	public method new() constructor
 	public method append(value)
@@ -11,7 +16,7 @@ class StringBuilder
 endclass
 
 method new() class StringBuilder
-	::string := ""
+	self:string := {}
 Return self
 
 method append(value) class StringBuilder
@@ -24,7 +29,7 @@ method append(value) class StringBuilder
 		OTHERWISE                 ; newValue := value
 	ENDCASE
 
-	::string += newValue
+	aAdd(self:string, newValue)
 Return
 
 method addMany(value as Variadic) class StringBuilder
@@ -32,14 +37,19 @@ method addMany(value as Variadic) class StringBuilder
 
 	IF (valType(value) != "U")
 		FOR i := 1 TO value:vCount
-			::append(value:vArgs[i])
+			self:append(value:vArgs[i])
 		NEXT
 	ENDIF
 Return
 
 method clear() class StringBuilder
-	::string := ""
+	self:string := {}
 Return
 
 method toString() class StringBuilder
-Return( ::string )
+	Local result := "" as Character, string as Character, i as Numeric
+
+	FOR (string, i OF self:string)
+		result += string
+	NEXT
+return result
