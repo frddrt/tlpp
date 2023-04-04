@@ -1,4 +1,6 @@
 #include "totvs.ch"
+#include "fwmvcdef.ch"
+#include "tlpp-object.th"
 
 #define cEOL chr(13)+chr(10)
 #define true .T.
@@ -12,6 +14,7 @@
 
 #xtranslate strTrim(<nExpr1>) => allTrim(str(<nExpr1>))
 #xtranslate transTrim(<nExpr1>, <cExpr2>) => allTrim(transform(<nExpr1>, <cExpr2>))
+#xtranslate stringToDate(<cExpr1>) => sToD(strTran(<cExpr1>, "-", ""))
 
 #xcommand if (<uExp1>) \{ <uExp2> \} => if <uExp1>; eval({|| <uExp2>}); endif
 
@@ -27,3 +30,7 @@
 #xcommand FOREACH <aExpr> AS <nExpr>, <xExpr> =>;
 FOR <nExpr> := 1 TO len(<aExpr>);;
 	<xExpr> := <aExpr>\[<nExpr>\]
+
+#xcommand FOR (<xExpr>, <nExpr> OF <aExpr>) =>;
+FOR <nExpr> := 1 TO len(<aExpr>);;
+        <xExpr> := <aExpr>\[<nExpr>\]
